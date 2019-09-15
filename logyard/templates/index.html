@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="add_buttons">
+
+    <div class="button-group">
+        <a href="{% url 'display_logs' %}" class="btn btn-primary btn-md btn-trim" role="button"> Logs</a>
+        <a href="#" class="btn btn-warning btn-sm btn-pad" role="button"> +</a>
+
+        <a href="{% url 'display_plywood' %}" class="btn btn-primary btn-md btn-trim" role="button"> Plywood</a>
+        <a href="#" class="btn btn-warning btn-sm btn-pad" role="button"> +</a>
+
+    </div>
+
+</div>
+
+<div>
+
+    <h4>Currently Viewing {{ header }}</h4>
+</div>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Species</th>
+        <th>Dimentions</th>
+        <th>Price</th>
+        <th>Status</th>
+        <th>Notes</th>
+        <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    {% for item in items %}
+
+    <tr>
+        <td>{{ item.pk }}
+        <td>{{ item.name }}</td>
+        <td>{{ item.species }}</td>
+        <td>{{ item.dimensions }}</td>
+        <td>${{ item.price }}</td>
+        <td>{{ item.status }}</td>
+        <td>{{ item.notes}}</td>
+
+
+
+
+    </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

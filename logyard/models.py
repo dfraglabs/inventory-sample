@@ -21,12 +21,18 @@ class Item(models.Model):
         abstract = True
 
     def __str__(self):
-        return 'Type: {0} Price: {1}'.format(self.type, self.price)
+        return 'Item: {0} - {1}'.format(self.name, self.species)
 
 
 class Logs(Item):
     pass
 
+    class Meta:
+        verbose_name_plural = "logs"
+
 
 class Plywood(Item):
     pass
+
+    class Meta:
+        verbose_name_plural = "plywood"
